@@ -1,5 +1,5 @@
 from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 import joblib
 
 def train_and_evaluate(X_train, X_test, y_train, y_test):
@@ -13,4 +13,6 @@ def train_and_evaluate(X_train, X_test, y_train, y_test):
     print("R²:", r2_score(y_test, predictions))
 
     joblib.dump(model, 'model.joblib')
+    print("Modelo salvo como 'model.joblib'")
+
     return model
