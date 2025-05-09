@@ -15,4 +15,4 @@ def train_and_evaluate(X_train, X_test, y_train, y_test):
     joblib.dump(model, 'model.joblib')
     print("Modelo salvo como 'model.joblib'")
 
-    return model
+    return model, predictions
