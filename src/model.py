@@ -1,18 +1,10 @@
 from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 import joblib
 
-def train_and_evaluate(X_train, X_test, y_train, y_test):
+def train_model(X_train, y_train):
     model = LinearRegression()
     model.fit(X_train, y_train)
-    predictions = model.predict(X_test)
+    return model
 
-    print("MAE:", mean_absolute_error(y_test, predictions))
-    print("MSE:", mean_squared_error(y_test, predictions))
-    print("RMSE:", mean_squared_error(y_test, predictions) ** 0.5)
-    print("R²:", r2_score(y_test, predictions))
-
-    joblib.dump(model, 'model.joblib')
-    print("Modelo salvo como 'model.joblib'")
-
-    return model, predictions
+def save_model(model, filename='model.joblib'):
+    joblib.dump(model, filename)
